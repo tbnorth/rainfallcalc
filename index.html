@@ -1,0 +1,48 @@
+<html><head>
+<title>Calculate rainfall volume from area and amount</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="rainfall.js"></script>
+<style>
+* { 
+    font-family: sans-serif; 
+    }
+.block {
+    margin-top: 1em; font-weight:bold; font-size:135%
+    }
+table.input td,th {
+    text-align: center;
+    padding: 0em 1em 1em 1em;
+    }
+input {
+    width: 7em;
+    }
+</style>
+</head>
+<body>
+<h1>Calculate rainfall volume from area and amount</h1>
+
+<table class='input'>
+<tr>
+<th>Feet x feet</th>
+<th rowspan='2'>OR</th>
+<th>Acres</th>
+<th rowspan='2'>OR</th>
+<th>Square miles</th>
+</tr>
+<tr>
+<td><input type="number" id='feet_x' value='100'/>' x 
+    <input type="number" id='feet_y' value='100'/>'</td>
+<td><input type="number" id='acres' value='0.5'/></td>
+<td><input type="number" id='sqmiles' value='50'/></td>
+</tr>
+<tr><th colspan='5'>Rainfall</th></tr>
+<tr><td colspan='5'>Total inches of rain:
+    <input type="number" id='rain_in' value='12'/></td></tr>
+<tr><td colspan='5'><button id='update'>Update</button></td></tr>
+</table>
+
+<table id='answer'>
+</table>
+
+</body>
+</html>
