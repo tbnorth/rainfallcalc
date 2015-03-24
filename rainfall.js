@@ -37,7 +37,7 @@ init = function() {
 };
 
 update = function() {
-  var baths, cuft, cum, gal, inch, kg, pint, pnds, sqft, tab, tonnes, tons;
+  var baths, cuft, cum, gal, inch, kg, pint, pnds, sqft, tab, text, tonnes, tons, x, _i, _len, _ref, _ref1, _results;
   tab = jQ('#answer');
   tab.empty();
   sqft = parseFloat((jQ('#feet_x')).val() * parseFloat((jQ('#feet_y')).val()));
@@ -51,24 +51,14 @@ update = function() {
   tonnes = kg / 1000;
   baths = gal / 35;
   pint = 8 * gal;
-  cuft = rnd(cuft, 2);
-  gal = rnd(gal, 2);
-  pnds = rnd(pnds, 2);
-  kg = rnd(kg, 2);
-  cum = rnd(cum, 2);
-  tons = rnd(tons, 2);
-  tonnes = rnd(tonnes, 2);
-  baths = rnd(baths, 2);
-  pint = rnd(pint, 2);
-  tab.append("<tr><td>cubic feet</td><td>" + cuft + "</td></tr>");
-  tab.append("<tr><td>gallons</td><td>" + gal + "</td></tr>");
-  tab.append("<tr><td>pints</td><td>" + pint + "</td></tr>");
-  tab.append("<tr><td>pounds</td><td>" + pnds + "</td></tr>");
-  tab.append("<tr><td>baths (35 gallon)</td><td>" + baths + "</td></tr>");
-  tab.append("<tr><td>tons</td><td>" + tons + "</td></tr>");
-  tab.append("<tr><td>cubic meters</td><td>" + cum + "</td></tr>");
-  tab.append("<tr><td>kg</td><td>" + kg + "</td></tr>");
-  return tab.append("<tr><td>metric tons</td><td>" + tonnes + "</td></tr>");
+  _ref = [['cubic feet', cuft], ['gallons', gal], ['pints', pint], ['pounds', pnds], ['baths (35 gallon)', baths], ['tons', tons], ['cubic meters', cum], ['kg', kg], ['metric tons', tonnes]];
+  _results = [];
+  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+    _ref1 = _ref[_i], text = _ref1[0], x = _ref1[1];
+    x = rnd(x, 2);
+    _results.push(tab.append("<tr><td>" + text + "</td><td>" + x + "</td></tr>"));
+  }
+  return _results;
 };
 
 jQ(init);

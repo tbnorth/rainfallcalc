@@ -66,25 +66,19 @@ update = ->
     baths = gal / 35
     pint = 8 * gal
     
-    cuft = rnd(cuft, 2)
-    gal = rnd(gal, 2)
-    pnds = rnd(pnds, 2)
-    kg = rnd(kg, 2)
-    cum = rnd(cum, 2)
-    tons = rnd(tons, 2)
-    tonnes = rnd(tonnes, 2)
-    baths = rnd(baths, 2)
-    pint = rnd(pint, 2)
-        
-    tab.append "<tr><td>cubic feet</td><td>#{cuft}</td></tr>"
-    tab.append "<tr><td>gallons</td><td>#{gal}</td></tr>"
-    tab.append "<tr><td>pints</td><td>#{pint}</td></tr>"
-    tab.append "<tr><td>pounds</td><td>#{pnds}</td></tr>"
-    tab.append "<tr><td>baths (35 gallon)</td><td>#{baths}</td></tr>"
-    tab.append "<tr><td>tons</td><td>#{tons}</td></tr>"
-    tab.append "<tr><td>cubic meters</td><td>#{cum}</td></tr>"
-    tab.append "<tr><td>kg</td><td>#{kg}</td></tr>"
-    tab.append "<tr><td>metric tons</td><td>#{tonnes}</td></tr>"
+    for [text, x] in [
+        ['cubic feet', cuft],
+        ['gallons', gal],
+        ['pints', pint],
+        ['pounds', pnds],
+        ['baths (35 gallon)', baths],
+        ['tons', tons],
+        ['cubic meters', cum],
+        ['kg', kg],
+        ['metric tons', tonnes],
+    ]
+        x = rnd x, 2
+        tab.append "<tr><td>#{text}</td><td>#{x}</td></tr>"
 
 jQ(init)
 
