@@ -1,9 +1,7 @@
 jQ = jQuery
 
 rnd = (x, n) ->
-    console.log x, n
     a = (Math.round x * Math.pow 10, n) / Math.pow 10, n
-    console.log a
     return a
 
 init = ->
